@@ -1,0 +1,11 @@
+BEGIN_PROLOG
+
+useService:
+{
+   module_type: "UseService"
+   URLStr:                 "https://ifb-data.fnal.gov:8104/ifbeam"
+   BundleName: "DUNE_CERN_SEP2018"
+   TimeWindow: 120  # width of time window in seconds
+}
+
+END_PROLOG

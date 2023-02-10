@@ -36,6 +36,9 @@ find_ups_product( larcore )
 find_ups_product( larcorealg )
 find_ups_product( nuevdb )
 find_ups_product( libwda )
+find_ups_product( ifdh_art )
+find_ups_product( ifdhc )
+find_ups_product( ifbeam )
 find_ups_geant4( )
 
 # macros for artdaq_dictionary and simple_plugin
@@ -45,5 +48,7 @@ include(BuildPlugins)
 
 add_subdirectory(dunecalib)
 add_subdirectory(ups)
+add_subdirectory(CondiitonsModules)
+add_subdirectory(ConditionsService)
 
 include(UseCPack)
