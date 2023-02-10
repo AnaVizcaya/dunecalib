@@ -24,13 +24,14 @@ services:
                   fileName: "prueba_hist.root" #can be overridden by '-T'
                 }
   IFBeam:            {}
+  prueba: {} #@local::prueba
 }
 
 
 source:
 {
   module_type: RootInput
-               maxEvents: -1
+               maxEvents: 3
 }
 physics:
 {

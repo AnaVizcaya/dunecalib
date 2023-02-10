@@ -48,7 +48,7 @@ include(BuildPlugins)
 
 add_subdirectory(dunecalib)
 add_subdirectory(ups)
-add_subdirectory(CondiitonsModules)
 add_subdirectory(ConditionsService)
+add_subdirectory(CondiitonsModules)
 
 include(UseCPack)

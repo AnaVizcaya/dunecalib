@@ -20,7 +20,9 @@
 #include "canvas/Utilities/InputTag.h"
 #include "ifdh_art/IFBeamService/IFBeam_service.h"
 #include "art_root_io/TFileService.h"
-
+#include "dunecalib/Calib/LifetimeCalib.h"
+#include "ConditionsService/prueba_service.h"
+// #include "ifdh_art/NUconDBService/NUconDB_service.h"
 
 class UseService;
 
@@ -54,13 +56,15 @@ public:
 private:
 
   // Declare member data here.
-  art::ServiceHandle<art::TFileService> tfs;
+  //art::ServiceHandle<art::TFileService> tfs;
   art::ServiceHandle<ifbeam_ns::IFBeam> ifb;
   std::unique_ptr<ifbeam_ns::BeamFolder> bfp; 
 
   std::string fBundleName;
   std::string fURLStr;
   double  fTimeWindow;
+
+  art::ServiceHandle<prueba> pb;
 };
 
 
@@ -90,7 +94,7 @@ void UseService::analyze(art::Event const& e)
   std::cout << "ClusterCounter module on evento #" << e.id().event() << std::endl;
   eventTime = e.time().timeHigh();
   std::string name = "dip/acc/NORTH/NP04/POW/MBPL022699:current";
-  std::vector<double> acqStamp = FetchAndReport(eventTime, name, bfp);
+  //std::vector<double> acqStamp = FetchAndReport(eventTime, name, bfp);
   //std::cout<< "This is the acqStamp" << acqStamp << std::endl;
   //for (char i: acqStamp)
     //std::cout << "This is part of the acqStamp" << i << std::endl;
@@ -100,7 +104,7 @@ void UseService::beginJob()
 {
   // Implementation of optional member function here.
   std::cout << "Begin of job" << std::endl;
-
+  pb->returnArg("Funciona!!!!!!!!");
   bfp = ifb->getBeamFolder(fBundleName,fURLStr,fTimeWindow);
 
 }
