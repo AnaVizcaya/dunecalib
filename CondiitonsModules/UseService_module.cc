@@ -22,7 +22,6 @@
 #include "art_root_io/TFileService.h"
 #include "dunecalib/Calib/LifetimeCalib.h"
 #include "ConditionsService/prueba_service.h"
-// #include "ifdh_art/NUconDBService/NUconDB_service.h"
 
 class UseService;
 
@@ -45,7 +44,7 @@ public:
   // Selected optional functions.
   void beginJob() override;
   void endJob() override;
-  void ucondbData();
+  //void ucondbData();
 
   long long int eventTime = 0;
 
@@ -106,7 +105,7 @@ void UseService::beginJob()
   std::cout << "Begin of job" << std::endl;
   pb->returnArg("Funciona!!!!!!!!");
   bfp = ifb->getBeamFolder(fBundleName,fURLStr,fTimeWindow);
-
+  //uconR = ucon->getFolder(fNameUcon, fURLUcon, fTag);
 }
 
 void UseService::endJob()
