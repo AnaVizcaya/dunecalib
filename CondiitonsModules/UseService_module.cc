@@ -21,7 +21,9 @@
 #include "ifdh_art/IFBeamService/IFBeam_service.h"
 #include "art_root_io/TFileService.h"
 #include "dunecalib/Calib/LifetimeCalib.h"
+
 #include "ConditionsService/prueba_service.h"
+#include "ConditionsService/conditions_service.h"
 
 class UseService;
 
@@ -55,7 +57,6 @@ public:
 private:
 
   // Declare member data here.
-  //art::ServiceHandle<art::TFileService> tfs;
   art::ServiceHandle<ifbeam_ns::IFBeam> ifb;
   std::unique_ptr<ifbeam_ns::BeamFolder> bfp; 
 
@@ -63,7 +64,13 @@ private:
   std::string fURLStr;
   double  fTimeWindow;
 
-  art::ServiceHandle<prueba> pb;
+  art::ServiceHandle<conditions_ns::conditions> ctg;
+  std::unique_ptr<conditions_ns::ConditionsFolder> cfd;
+  std::string fglobalTag;
+  double fmajorIov;
+  double fminorIov;
+
+  art::ServiceHandle<conditions_ns::prueba> pb;
 };
 
 
@@ -71,7 +78,10 @@ UseService::UseService(fhicl::ParameterSet const& p)
   : EDAnalyzer{p},  // ,
   fBundleName(p.get<std::string>("BundleName")),
   fURLStr(p.get<std::string>("URLStr")),
-  fTimeWindow(p.get<double>("TimeWindow"))
+  fTimeWindow(p.get<double>("TimeWindow")),
+  fglobalTag(p.get<std::string>("globalTag")),
+  fmajorIov(p.get<double>("majorIov")),
+  fminorIov(p.get<double>("minorIov"))
   // More initializers here.
 {
   // Call appropriate consumes<>() for any products to be retrieved by this module.
@@ -103,9 +113,12 @@ void UseService::beginJob()
 {
   // Implementation of optional member function here.
   std::cout << "Begin of job" << std::endl;
-  pb->returnArg("Funciona!!!!!!!!");
+  pb->returnArg("Funciona muy bien!!!!!!!!");
   bfp = ifb->getBeamFolder(fBundleName,fURLStr,fTimeWindow);
   //uconR = ucon->getFolder(fNameUcon, fURLUcon, fTag);
+ 
+  ctg->returnStr("Hopefull");
+  //ctg->getConditionsFolder("Hellooo holaaa", 1, 0);
 }
 
 void UseService::endJob()

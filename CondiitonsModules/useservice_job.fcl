@@ -26,6 +26,7 @@ services:
   IFBeam:            {}
   #NUconDBService: {}
   prueba: {} #@local::prueba
+  conditions: {}
 }
 
 

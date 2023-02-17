@@ -6,6 +6,9 @@ useService:
    URLStr:                 "https://ifb-data.fnal.gov:8104/ifbeam"
    BundleName: "DUNE_CERN_SEP2018"
    TimeWindow: 120  # width of time window in seconds
+   globalTag: "globalglobal"
+   majorIov: 20
+   minorIov: 1
 }
 
 END_PROLOG

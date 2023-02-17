@@ -8,19 +8,20 @@
 #include "fhiclcpp/fwd.h"
 
 
+namespace conditions_ns {
 
-class prueba {
-public:
+  class prueba {
+  public:
     explicit prueba(fhicl::ParameterSet const&);
 
     void returnArg(std::string arg) {
       std::cout << "The given string: " << arg << std::endl;
     };
-    //std::unique_ptr<pruebaFolder> getPruebaFolder(std::string bundle_name,
-    //                                          std::string url = "",
-    //                                          double time_width = 1200.0);
   };
 
-DECLARE_ART_SERVICE(prueba, LEGACY)
+
+}
+
+DECLARE_ART_SERVICE(conditions_ns::prueba, LEGACY)
 
 #endif 
