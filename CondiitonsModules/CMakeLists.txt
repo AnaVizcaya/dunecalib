@@ -2,6 +2,9 @@ cet_build_plugin(UseService art::module
 			LIBRARIES
                         ifbeam::ifbeam
    			ifdh_art::IFBeam_service
+			IFBeamP_service
+			conditions_service
+			prueba_service
 			larcorealg::Geometry
 			larcore::Geometry_Geometry_service
                         art::Framework_Services_Registry

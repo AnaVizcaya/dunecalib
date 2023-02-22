@@ -10,8 +10,21 @@ cet_build_plugin(prueba art::service
   )
 
 
+cet_build_plugin(IFBeamP art::service
+  LIBRARIES
+  ifbeam::ifbeam
+  wda::wda
+  ifdh::ifdh
+  messagefacility::MF_MessageLogger
+  art::Utilities
+  fhiclcpp::fhiclcpp
+  cetlib::cetlib
+  BASENAME_ONLY
+  )
+
 cet_build_plugin(conditions art::service
   LIBRARIES
+  dunecalib::Calib
   wda::wda
   ifdh::ifdh
   messagefacility::MF_MessageLogger

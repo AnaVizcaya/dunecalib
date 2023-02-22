@@ -8,6 +8,11 @@
 #include <string.h>
 #include <errno.h>
 
+#include <string>
+#include <vector>
+#include "math.h"
+#include "stdio.h"
+
 #include "conditions.h"
 
 namespace conditions_ns {

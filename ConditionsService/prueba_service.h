@@ -14,9 +14,9 @@ namespace conditions_ns {
   public:
     explicit prueba(fhicl::ParameterSet const&);
 
-    void returnArg(std::string arg) {
-      std::cout << "The given string: " << arg << std::endl;
-    };
+    void returnArg(std::string arg); //{
+     // std::cout << "The given string: " << arg << std::endl;
+    //};
   };
 
 

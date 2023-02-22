@@ -24,6 +24,7 @@ services:
                   fileName: "prueba_hist.root" #can be overridden by '-T'
                 }
   IFBeam:            {}
+  IFBeamP: {}
   #NUconDBService: {}
   prueba: {} #@local::prueba
   conditions: {}

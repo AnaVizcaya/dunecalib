@@ -24,6 +24,7 @@
 
 #include "ConditionsService/prueba_service.h"
 #include "ConditionsService/conditions_service.h"
+#include "ConditionsService/IFBeamP_service.h"
 
 class UseService;
 
@@ -58,6 +59,7 @@ private:
 
   // Declare member data here.
   art::ServiceHandle<ifbeam_ns::IFBeam> ifb;
+  art::ServiceHandle<ifbeamP_ns::IFBeamP> ifbp;
   std::unique_ptr<ifbeam_ns::BeamFolder> bfp; 
 
   std::string fBundleName;
@@ -115,10 +117,11 @@ void UseService::beginJob()
   std::cout << "Begin of job" << std::endl;
   pb->returnArg("Funciona muy bien!!!!!!!!");
   bfp = ifb->getBeamFolder(fBundleName,fURLStr,fTimeWindow);
+  ifbp->returnStr("Segunda Prueba");
   //uconR = ucon->getFolder(fNameUcon, fURLUcon, fTag);
  
   ctg->returnStr("Hopefull");
-  //ctg->getConditionsFolder("Hellooo holaaa", 1, 0);
+  //cfd = ctg->getConditionsFolder("Hellooo holaaa", 1, 0);
 }
 
 void UseService::endJob()
