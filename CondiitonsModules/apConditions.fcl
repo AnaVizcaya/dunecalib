@@ -1,0 +1,8 @@
+BEGIN_PROLOG
+
+APConditions:
+{
+  module_type: "apConditions"
+}
+
+END_PROLOG

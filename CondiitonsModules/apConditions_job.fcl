@@ -1,0 +1,33 @@
+#include "apConditions.fcl"
+
+process_name: apConditions
+
+services:
+{
+  TFileService: { #closeFileFast: true
+                  fileName: "prueba_hist.root" #can be overridden by '-T'
+                }
+  IFBeam:            {}
+  IFBeamP: {}
+  #NUconDBService: {}
+  prueba: {} #@local::prueba
+  conditions: {}
+  conditionsNP: {}
+}
+
+source:
+{
+  module_type: RootInput
+               maxEvents: 3
+}
+
+physics:
+{
+  analyzers:
+  {
+    ana: @local::APConditions
+  }  
+  path0: [ana]
+  end_paths: [path0]
+}
+
